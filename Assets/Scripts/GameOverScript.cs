@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverScript : MonoBehaviour {
+public class GameOverScript : MonoBehaviour
+{
 
-	public float timeToLoadMenu = 3f;
+	public float TimeToLoadMenu = 3f;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		StartCoroutine (LoadMenu());
 	}
 	
-	IEnumerator LoadMenu(){
-		yield return new WaitForSeconds (timeToLoadMenu);
+	IEnumerator LoadMenu()
+    {
+		yield return new WaitForSeconds (TimeToLoadMenu);
 		SceneManager.LoadScene (0);
 	}
 }

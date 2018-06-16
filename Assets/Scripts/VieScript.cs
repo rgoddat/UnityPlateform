@@ -4,27 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class VieScript : MonoBehaviour {
+public class VieScript : MonoBehaviour
+{
 
-	public float nbVies = 3;
-	public Text txtVie;
+	public float NbVies = 10;
+	public Text TxtVie;
 
 	// Use this for initialization
-	void Start () {
-		txtVie.text = "Vies :" + (int) nbVies;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	void Start ()
+    {
+		TxtVie.text = "Vies :" + (int) NbVies;
 	}
 
-	void OnTriggerEnter (Collider other){
-		if (other.gameObject.tag == "Player") {
-			nbVies -= 0.5f;
-			txtVie.text = "Vies :" + (int) nbVies;
+	void OnTriggerEnter (Collider other)
+    {
+		if (other.gameObject.tag == "Player")
+        {
+			NbVies -= 0.5f;
+			TxtVie.text = "Vies :" + (int) NbVies;
 
-			if (nbVies == 0) {
+			if (NbVies == 0)
+            {
 				SceneManager.LoadScene (3);
 			}
 		}

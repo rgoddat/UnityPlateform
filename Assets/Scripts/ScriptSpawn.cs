@@ -1,18 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScriptSpawn : MonoBehaviour {
+public class ScriptSpawn : MonoBehaviour
+{
 
-	public AudioClip soundDead;
+	public AudioClip SoundDead;
     
    	void OnTriggerEnter (Collider Other)
     {
         if(Other.gameObject.name== "FPSController")
         {
-			GetComponent<AudioSource> ().PlayOneShot (soundDead);
+			GetComponent<AudioSource> ().PlayOneShot (SoundDead);
             Other.gameObject.transform.position = GameObject.Find("SpawnPoint").transform.position;
-
-            
         }	
 	}		
 }

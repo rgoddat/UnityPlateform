@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotationTourniquetScript : MonoBehaviour {
+public class RotationTourniquetScript : MonoBehaviour
+{
 
-	public int speed = 10;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+	public int Speed = 10;
 	
 	// Update is called once per frame
-	void Update () {
-		transform.Rotate (Vector3.up * speed * Time.deltaTime);
+	void Update ()
+    {
+		transform.Rotate (Vector3.up * Speed * Time.deltaTime);
 	}
 }

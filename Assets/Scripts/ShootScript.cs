@@ -2,28 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootScript : MonoBehaviour {
+public class ShootScript : MonoBehaviour
+{
 
-	public GameObject prefabProjectile;
-	public float shootRate = 2f;
-	public int speed = 1000;
-	public AudioClip soundShoot;
+	public GameObject PrefabProjectile;
+	public float ShootRate = 0.5f;
+	public int Speed = 2000;
+	public AudioClip SoundShoot;
 
 	private GameObject projectile;
 	private float nextShoot;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (Time.time > nextShoot) {
-			nextShoot = Time.time + shootRate;
-			projectile = Instantiate (prefabProjectile, transform.position, Quaternion.identity) as GameObject;
-			GetComponent<AudioSource> ().PlayOneShot (soundShoot);
-			projectile.GetComponent<Rigidbody> ().AddForce (transform.TransformDirection(Vector3.right)* speed);
+	void Update ()
+    {
+		if (Time.time > nextShoot)
+        {
+			nextShoot = Time.time + ShootRate;
+			projectile = Instantiate (PrefabProjectile, transform.position, Quaternion.identity) as GameObject;
+			GetComponent<AudioSource> ().PlayOneShot (SoundShoot);
+			projectile.GetComponent<Rigidbody> ().AddForce (transform.TransformDirection(Vector3.right)* Speed);
 			Destroy (projectile, 2f);
 		}
 	}

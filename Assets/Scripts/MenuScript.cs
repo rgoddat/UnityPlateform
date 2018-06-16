@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuScript : MonoBehaviour {
+public class MenuScript : MonoBehaviour
+{
 
-	public void Start(){
+	public void Start()
+    {
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
 	}
 
-	public void QuitGame(){
+	public void QuitGame()
+    {
 		
 		Application.Quit ();
 
 	}
 
-	public void PlayGame(){
+	public void PlayGame()
+    {
 		SceneManager.LoadScene (1);
 	}
 

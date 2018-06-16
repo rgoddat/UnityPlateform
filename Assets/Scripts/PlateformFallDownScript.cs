@@ -2,31 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlateformFallDownScript : MonoBehaviour {
+public class PlateformFallDownScript : MonoBehaviour
+{
 
 	//Vars
-	public float secToFall = 0.5f;
+	public float SecToFall = 0.5f;
 	private Rigidbody rb;
 	private Material plateformColor;
 	private Vector3 startPosition;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		rb = GetComponent<Rigidbody>();
 		startPosition = transform.position;
 		plateformColor = GetComponent<Renderer> ().material;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.tag == "Player") {
+	void OnTriggerEnter(Collider other)
+    {
+		if (other.gameObject.tag == "Player")
+        {
 			plateformColor.color = Color.red;
 			StartCoroutine (FallDown ());
-		} else if(other.gameObject.tag == "ZoneSpawn") { //Entre dans le trigger de respawn
+		}
+        else if(other.gameObject.tag == "ZoneSpawn")
+        {   //Entre dans le trigger de respawn
 			//Réinit la plateforme
 			plateformColor.color = Color.white;
 			rb.isKinematic = true;
@@ -36,8 +37,9 @@ public class PlateformFallDownScript : MonoBehaviour {
 
 
 	//Coroutine pour délayer la chute de la plateforme
-	IEnumerator FallDown(){
-		yield return new WaitForSeconds (secToFall);
+	IEnumerator FallDown()
+    {
+		yield return new WaitForSeconds (SecToFall);
 		rb.isKinematic = false;
 	}
 }
